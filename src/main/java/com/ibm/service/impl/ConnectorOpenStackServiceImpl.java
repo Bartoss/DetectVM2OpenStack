@@ -18,17 +18,17 @@ public class ConnectorOpenStackServiceImpl implements ConnectorOpenStackService 
 
     private Config config = Config.DEFAULT.withSSLContext(UntrustedSSL.getSSLContext());
 
-    private String domainName = "ibm";
+    private String domainName = "";
 
-    private String projectId = "abc79f86530d42be88ef02efb1445480";
+    private String projectId = "";
 
     private OSClient.OSClientV3 os;
 
     public void connect() {
 
         os = OSFactory.builderV3()
-                .endpoint("https://hdc-cloud.hursley.ibm.com:5000/v3")
-                .credentials("bartlomiej.sarata@ibm.com", "bartek95qwertzxx", Identifier.byName(domainName))
+                .endpoint("")
+                .credentials("", "", Identifier.byName(domainName))
                 .scopeToProject(Identifier.byId(projectId))
                 .withConfig(config)
                 .authenticate();
